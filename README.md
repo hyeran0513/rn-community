@@ -6,7 +6,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 npx create-expo-app@latest (폴더명) --template
 ```
 
-## Get started
+### Get started
 
 1. Install dependencies
 
@@ -19,3 +19,11 @@ npx create-expo-app@latest (폴더명) --template
    ```bash
    npx expo start
    ```
+
+---
+
+### 📁 설치 패키지
+
+| 패키지명                       | 설치 명령어                                       | 설명                    |
+| ------------------------------ | ------------------------------------------------- | ----------------------- |
+| react-native-safe-area-context | `npx expo install react-native-safe-area-context` | 안드로이드 SafeAreaView |
