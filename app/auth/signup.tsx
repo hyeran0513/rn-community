@@ -1,10 +1,52 @@
-import { Text } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import EmailInput from "@/components/EmailInput";
+import FixedBottomCTA from "@/components/FixedBottomCTA";
+import PasswordConfirmInput from "@/components/PasswordConfirmInput";
+import PasswordInput from "@/components/PasswordInput";
+import useAuth from "@/hooks/queries/useAuth";
+import { FormProvider, useForm } from "react-hook-form";
+import { StyleSheet, View } from "react-native";
+
+type FormValues = {
+  email: string;
+  password: string;
+  passwordConfirm: string;
+};
 
 export default function SignupScreen() {
+  const { signupMutation } = useAuth();
+  const signupForm = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+      passwordConfirm: "",
+    },
+  });
+
+  const onSubmit = (formValues: FormValues) => {
+    const { email, password } = formValues;
+    console.log("회원가입 확인" + email + " " + password);
+    signupMutation.mutate({ email, password });
+  };
+
   return (
-    <SafeAreaView>
-      <Text>회원가입</Text>
-    </SafeAreaView>
+    <FormProvider {...signupForm}>
+      <View style={styles.container}>
+        <EmailInput />
+        <PasswordInput submitBehavior="submit" />
+        <PasswordConfirmInput />
+      </View>
+      <FixedBottomCTA
+        label="회원가입하기"
+        onPress={signupForm.handleSubmit(onSubmit)}
+      />
+    </FormProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    margin: 16,
+    gap: 16,
+  },
+});
