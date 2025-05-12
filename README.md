@@ -27,3 +27,7 @@ npx create-expo-app@latest (폴더명) --template
 | 패키지명                       | 설치 명령어                                       | 설명                    |
 | ------------------------------ | ------------------------------------------------- | ----------------------- |
 | react-native-safe-area-context | `npx expo install react-native-safe-area-context` | 안드로이드 SafeAreaView |
+| react-hook-form                | `npm install react-hook-form`                     |                         |
+| tanstack/react-query           | `npm install @tanstack/react-query`               |                         |
+| expo-secure-store              | `npx expo install expo-secure-store`              |                         |
+| axios                          | `npm install axios`                               |                         |
