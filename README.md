@@ -31,3 +31,4 @@ npx create-expo-app@latest (폴더명) --template
 | tanstack/react-query           | `npm install @tanstack/react-query`               |                         |
 | expo-secure-store              | `npx expo install expo-secure-store`              |                         |
 | axios                          | `npm install axios`                               |                         |
+| react-native-toast-message     | `npm i react-native-toast-message`                |                         |
