@@ -1,6 +1,7 @@
 ## React Native 공부용 프로젝트 👋
 
 ### 📍 expo app 설치 명령어
+
 ```
 npx create-expo-app@latest (폴더명) --template
 ```
@@ -9,28 +10,29 @@ npx create-expo-app@latest (폴더명) --template
 
 ### 📁 설치 패키지
 
-| 패키지명                       | 설치 명령어                                       | 설명                    |
-| ------------------------------ | ------------------------------------------------- | ----------------------- |
-| react-native-safe-area-context | `npx expo install react-native-safe-area-context` | 안드로이드 SafeAreaView |
-| react-hook-form                | `npm install react-hook-form`                     |                         |
-| tanstack/react-query           | `npm install @tanstack/react-query`               |                         |
-| expo-secure-store              | `npx expo install expo-secure-store`              |                         |
-| axios                          | `npm install axios`                               |                         |
-| react-native-toast-message     | `npm i react-native-toast-message`                |                         |
+| 패키지명                                | 설치 명령어                                       | 설명                    |
+| --------------------------------------- | ------------------------------------------------- | ----------------------- |
+| react-native-safe-area-context          | `npx expo install react-native-safe-area-context` | 안드로이드 SafeAreaView |
+| react-hook-form                         | `npm install react-hook-form`                     |                         |
+| tanstack/react-query                    | `npm install @tanstack/react-query`               |                         |
+| expo-secure-store                       | `npx expo install expo-secure-store`              |                         |
+| axios                                   | `npm install axios`                               |                         |
+| react-native-toast-message              | `npm i react-native-toast-message`                |                         |
+| react-native-keyboard-aware-scroll-view | `npm i react-native-keyboard-aware-scroll-view`   |                         |
 
 ---
 
 ### 📝 메모
 
 1. React Native에서 많은 데이터를 가진 긴 목록을 표시할 때, <br />
-ScrollView 대신 FlatList 사용하는 주된 장점은?
+   ScrollView 대신 FlatList 사용하는 주된 장점은?
 
    화면에 보이는 항목만 렌더링한다.
 
 <br />
 
 3. 디바이스 안전 영역을 고려하여, 버튼을 화면 가장 아래에 항상 고정시키는 방법은?
-  
+
    `position: 'absolute'`와 `bottom: 0`을 사용하고 `useSafeAreaInsets`로 하단 패딩을 조정한다.
 
 <br />
@@ -55,4 +57,4 @@ ScrollView 대신 FlatList 사용하는 주된 장점은?
 
 11. 사용자 로그인 성공 후 서버로부터 받은 민감한 정보인 엑세스 토큰을 모바일 앱에 안전하게 저장하기 위해 추천되는 방법은?
 
-    SecureStore 사용 
+    SecureStore 사용
