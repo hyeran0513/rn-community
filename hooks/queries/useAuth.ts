@@ -31,8 +31,8 @@ function useLogin() {
       queryClient.fetchQuery({ queryKey: ["auth", "getMe"] });
       router.replace("/");
     },
-    onError: () => {
-      //
+    onError: (error) => {
+      console.error("오류" + error.message);
     },
   });
 }
