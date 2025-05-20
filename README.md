@@ -20,6 +20,7 @@ npx create-expo-app@latest (폴더명) --template
 | react-native-toast-message              | `npm i react-native-toast-message`                |                         |
 | react-native-keyboard-aware-scroll-view | `npm i react-native-keyboard-aware-scroll-view`   |                         |
 | dayjs                                   | `npm i dayjs`                                     |                         |
+| @expo/react-native-action-sheet         | `npm install @expo/react-native-action-sheet`     |                         |
 
 ---
 

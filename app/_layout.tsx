@@ -6,6 +6,7 @@ import { Stack } from "expo-router";
 import { useEffect } from "react";
 import "react-native-reanimated";
 import Toast from "react-native-toast-message";
+import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 
 export default function RootLayout() {
   const [loaded] = useFonts({
@@ -17,10 +18,12 @@ export default function RootLayout() {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <RootNavigator />
-      <Toast />
-    </QueryClientProvider>
+    <ActionSheetProvider>
+      <QueryClientProvider client={queryClient}>
+        <RootNavigator />
+        <Toast />
+      </QueryClientProvider>
+    </ActionSheetProvider>
   );
 }
 
