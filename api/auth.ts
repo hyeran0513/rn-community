@@ -8,9 +8,8 @@ type RequestUser = {
 };
 
 async function postSignup(body: RequestUser): Promise<void> {
-  console.log("회원가입 요청 바디:", body);
   const { data } = await axiosInstance.post("/auth/signup", body);
-  console.log("회원가입 응답:", data);
+
   return data;
 }
 
