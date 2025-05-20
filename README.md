@@ -19,6 +19,7 @@ npx create-expo-app@latest (폴더명) --template
 | axios                                   | `npm install axios`                               |                         |
 | react-native-toast-message              | `npm i react-native-toast-message`                |                         |
 | react-native-keyboard-aware-scroll-view | `npm i react-native-keyboard-aware-scroll-view`   |                         |
+| dayjs                                   | `npm i dayjs`                                     |                         |
 
 ---
 
