@@ -1,12 +1,16 @@
+import { colors } from "@/constants";
 import { Feather } from "@expo/vector-icons";
-import { Link, Stack } from "expo-router";
+import { Link, router, Stack } from "expo-router";
+import { Pressable } from "react-native";
 
 export default function PostLayout() {
   return (
     <Stack
       screenOptions={{
-        headerTintColor: "#000",
-        contentStyle: {},
+        headerTintColor: colors.BLACK,
+        contentStyle: {
+          backgroundColor: colors.WHITE,
+        },
       }}
     >
       <Stack.Screen
@@ -21,14 +25,35 @@ export default function PostLayout() {
           ),
         }}
       />
-
+      <Stack.Screen
+        name="[id]"
+        options={{
+          headerShown: true,
+          headerTitle: "",
+          headerLeft: () => (
+            <Pressable
+              onPress={() =>
+                router.canGoBack() ? router.back() : router.replace("/")
+              }
+            >
+              <Feather name="arrow-left" size={28} color={"black"} />
+            </Pressable>
+          ),
+        }}
+      />
       <Stack.Screen
         name="update/[id]"
         options={{
           title: "수정",
           headerShown: true,
-          headerTitleAlign: "center",
-          headerBackVisible: true,
+          headerLeft: () => (
+            <Feather
+              name="arrow-left"
+              size={28}
+              color={"black"}
+              onPress={() => router.back()}
+            />
+          ),
         }}
       />
     </Stack>
