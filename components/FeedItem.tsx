@@ -1,10 +1,13 @@
 import { colors } from "@/constants";
-import { Post } from "@/types";
-import { Ionicons, MaterialCommunityIcons, Octicons } from "@expo/vector-icons";
+import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Octicons, MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
+import { Post } from "@/types";
 import Profile from "./Profile";
 import useAuth from "@/hooks/queries/useAuth";
 import { useActionSheet } from "@expo/react-native-action-sheet";
+import useDeletePost from "@/hooks/queries/useDeletePost";
+import { router } from "expo-router";
 
 interface FeedItemProps {
   post: Post;
@@ -15,6 +18,7 @@ function FeedItem({ post }: FeedItemProps) {
   const likeUsers = post.likes?.map((like) => Number(like.userId));
   const isLiked = likeUsers?.includes(Number(auth.id));
   const { showActionSheetWithOptions } = useActionSheet();
+  const deletePost = useDeletePost();
 
   const handlePressOption = () => {
     const options = ["삭제", "수정", "취소"];
@@ -24,12 +28,12 @@ function FeedItem({ post }: FeedItemProps) {
     showActionSheetWithOptions(
       { options, cancelButtonIndex, destructiveButtonIndex },
       (selectedIndex?: number) => {
-        console.log("selectedIndex", selectedIndex);
-
         switch (selectedIndex) {
-          case destructiveButtonIndex: // 삭제
+          case destructiveButtonIndex:
+            deletePost.mutate(post.id);
             break;
-          case 1: // 수정
+          case 1:
+            router.push(`/post/update/${post.id}`);
             break;
           case cancelButtonIndex:
             break;
@@ -64,7 +68,6 @@ function FeedItem({ post }: FeedItemProps) {
           {post.description}
         </Text>
       </View>
-
       <View style={styles.menuContainer}>
         <Pressable style={styles.menu}>
           <Octicons
@@ -72,25 +75,20 @@ function FeedItem({ post }: FeedItemProps) {
             size={16}
             color={isLiked ? colors.ORANGE_600 : colors.BLACK}
           />
-
           <Text style={isLiked ? styles.activeMenuText : styles.menuText}>
             {post.likes.length || "좋아요"}
           </Text>
         </Pressable>
-
         <Pressable style={styles.menu}>
           <MaterialCommunityIcons
             name="comment-processing-outline"
             size={16}
             color={colors.BLACK}
           />
-
           <Text style={styles.menuText}>{post.commentCount || "댓글"}</Text>
         </Pressable>
-
         <Pressable style={styles.menu}>
           <Ionicons name="eye-outline" size={16} color={colors.BLACK} />
-
           <Text style={styles.menuText}>{post.viewCount}</Text>
         </Pressable>
       </View>
