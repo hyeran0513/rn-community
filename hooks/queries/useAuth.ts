@@ -42,11 +42,11 @@ function useLogin() {
     onSuccess: async ({ accessToken }) => {
       setHeader("Authorization", `Bearer ${accessToken}`);
       await saveSecureStore("accessToken", accessToken);
-      queryClient.fetchQuery({ queryKey: ["auth", "getMe"] });
+      queryClient.fetchQuery({ queryKey: [queryKeys.AUTH, queryKeys.GET_ME] });
       router.replace("/");
     },
-    onError: (error) => {
-      console.error("오류" + error.message);
+    onError: () => {
+      //
     },
   });
 }
@@ -54,12 +54,9 @@ function useLogin() {
 function useSignup() {
   return useMutation({
     mutationFn: postSignup,
-    onSuccess: (res) => {
-      console.log("회원가입 성공", res);
-      router.replace("/auth/login");
-    },
-    onError: (err) => {
-      console.log("회원가입 실패", err);
+    onSuccess: () => router.replace("/auth/login"),
+    onError: () => {
+      //
     },
   });
 }
@@ -72,7 +69,7 @@ function useAuth() {
   const logout = () => {
     removeHeader("Authorization");
     deleteSecureStore("accessToken");
-    queryClient.resetQueries({ queryKey: ["auth"] });
+    queryClient.resetQueries({ queryKey: [queryKeys.AUTH] });
   };
 
   return {

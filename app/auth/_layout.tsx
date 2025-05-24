@@ -1,12 +1,15 @@
-import { Foundation } from "@expo/vector-icons";
 import { Link, Stack } from "expo-router";
+import Foundation from "@expo/vector-icons/Foundation";
+import { colors } from "@/constants";
 
 export default function AuthLayout() {
   return (
     <Stack
       screenOptions={{
-        headerTintColor: "#000",
-        contentStyle: {},
+        headerTintColor: colors.BLACK,
+        contentStyle: {
+          backgroundColor: colors.WHITE,
+        },
       }}
     >
       <Stack.Screen
@@ -21,7 +24,6 @@ export default function AuthLayout() {
           ),
         }}
       />
-
       <Stack.Screen
         name="login"
         options={{
@@ -30,7 +32,6 @@ export default function AuthLayout() {
           headerBackButtonDisplayMode: "minimal",
         }}
       />
-
       <Stack.Screen
         name="signup"
         options={{

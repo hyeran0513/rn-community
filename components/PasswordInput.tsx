@@ -1,7 +1,7 @@
 import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
-import { TextInputProps } from "react-native";
 import InputField from "./InputField";
+import { TextInputProps } from "react-native";
 
 interface Props {
   submitBehavior?: TextInputProps["submitBehavior"];

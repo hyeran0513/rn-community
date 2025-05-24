@@ -1,10 +1,10 @@
-import EmailInput from "@/components/EmailInput";
-import FixedBottomCTA from "@/components/FixedBottomCTA";
-import PasswordConfirmInput from "@/components/PasswordConfirmInput";
-import PasswordInput from "@/components/PasswordInput";
-import useAuth from "@/hooks/queries/useAuth";
-import { FormProvider, useForm } from "react-hook-form";
 import { StyleSheet, View } from "react-native";
+import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import EmailInput from "@/components/EmailInput";
+import PasswordInput from "@/components/PasswordInput";
+import PasswordConfirmInput from "@/components/PasswordConfirmInput";
+import FixedBottomCTA from "@/components/FixedBottomCTA";
+import useAuth from "@/hooks/queries/useAuth";
 
 type FormValues = {
   email: string;
@@ -24,7 +24,6 @@ export default function SignupScreen() {
 
   const onSubmit = (formValues: FormValues) => {
     const { email, password } = formValues;
-    console.log("회원가입 확인" + email + " " + password);
     signupMutation.mutate({ email, password });
   };
 

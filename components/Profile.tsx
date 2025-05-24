@@ -1,5 +1,5 @@
 import { colors } from "@/constants";
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
@@ -33,7 +33,6 @@ function Profile({
           }
           style={styles.avatar}
         />
-
         <View style={{ gap: 4 }}>
           <Text style={styles.nickname}>{nickname}</Text>
           <Text style={styles.createdAt}>{dayjs(createdAt).fromNow()}</Text>

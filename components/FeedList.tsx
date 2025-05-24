@@ -1,9 +1,9 @@
+import React, { useRef, useState } from "react";
+import { FlatList, StyleSheet, View } from "react-native";
+import FeedItem from "./FeedItem";
 import { colors } from "@/constants";
 import useGetInfinitePosts from "@/hooks/queries/useGetInfinitePosts";
 import { useScrollToTop } from "@react-navigation/native";
-import React, { useRef, useState } from "react";
-import { FlatList, StyleSheet } from "react-native";
-import FeedItem from "./FeedItem";
 
 function FeedList() {
   const {

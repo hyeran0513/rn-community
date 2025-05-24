@@ -1,13 +1,13 @@
-import CustomButton from "@/components/CustomButton";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { FormProvider, useForm } from "react-hook-form";
+import { ScrollView, StyleSheet, View } from "react-native";
 import DescriptionInput from "@/components/DescriptionInput";
 import TitleInput from "@/components/TitleInput";
 import useCreatePost from "@/hooks/queries/useCreatePost";
 import { ImageUri } from "@/types";
 import { useNavigation } from "expo-router";
 import { useEffect } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import { StyleSheet } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import CustomButton from "@/components/CustomButton";
 
 type FormValues = {
   title: string;
@@ -41,7 +41,7 @@ export default function PostWriteScreen() {
         />
       ),
     });
-  });
+  }, []);
 
   return (
     <FormProvider {...postForm}>

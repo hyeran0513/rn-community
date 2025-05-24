@@ -14,4 +14,4 @@ async function deleteSecureStore(key: string) {
   await SecureStore.deleteItemAsync(key);
 }
 
-export { deleteSecureStore, getSecureStore, saveSecureStore };
+export { saveSecureStore, getSecureStore, deleteSecureStore };

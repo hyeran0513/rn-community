@@ -1,3 +1,4 @@
+import { colors } from "@/constants";
 import { Stack } from "expo-router";
 
 export default function MyLayout() {
@@ -5,14 +6,16 @@ export default function MyLayout() {
     <Stack
       screenOptions={{
         headerShown: false,
-        contentStyle: {},
+        contentStyle: {
+          backgroundColor: colors.WHITE,
+        },
       }}
     >
       <Stack.Screen
         name="index"
         options={{
-          title: "내 프로필",
           headerShown: false,
+          title: "내 프로필",
         }}
       />
     </Stack>

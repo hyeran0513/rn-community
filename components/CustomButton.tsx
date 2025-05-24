@@ -1,4 +1,5 @@
 import { colors } from "@/constants";
+import React from "react";
 import { Pressable, PressableProps, StyleSheet, Text } from "react-native";
 
 interface CustomButtonProps extends PressableProps {
@@ -44,6 +45,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     color: colors.WHITE,
+  },
+  standard: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: colors.ORANGE_600,
   },
   pressed: {
     opacity: 0.8,

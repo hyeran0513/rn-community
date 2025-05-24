@@ -36,4 +36,4 @@ async function updatePost({ id, body }: RequestUpdatePost): Promise<number> {
   return data;
 }
 
-export { createPost, deletePost, getPost, getPosts, updatePost };
+export { createPost, getPosts, deletePost, getPost, updatePost };

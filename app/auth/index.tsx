@@ -12,7 +12,6 @@ export default function AuthScreen() {
           style={styles.logo}
         />
       </View>
-
       <View style={styles.buttonContainer}>
         <CustomButton
           label="이메일 로그인"

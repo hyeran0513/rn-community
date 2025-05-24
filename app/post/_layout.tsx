@@ -1,6 +1,6 @@
+import { Link, router, Stack } from "expo-router";
 import { colors } from "@/constants";
 import { Feather } from "@expo/vector-icons";
-import { Link, router, Stack } from "expo-router";
 import { Pressable } from "react-native";
 
 export default function PostLayout() {

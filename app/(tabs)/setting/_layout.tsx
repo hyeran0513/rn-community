@@ -1,3 +1,4 @@
+import { colors } from "@/constants";
 import { Stack } from "expo-router";
 
 export default function SettingLayout() {
@@ -5,14 +6,16 @@ export default function SettingLayout() {
     <Stack
       screenOptions={{
         headerShown: false,
-        contentStyle: {},
+        contentStyle: {
+          backgroundColor: colors.WHITE,
+        },
       }}
     >
       <Stack.Screen
         name="index"
         options={{
-          title: "설정",
           headerShown: false,
+          title: "설정",
         }}
       />
     </Stack>

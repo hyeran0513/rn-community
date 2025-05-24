@@ -1,20 +1,17 @@
-import { updatePost } from "@/api/post";
+import { createComment } from "@/api/comment";
 import queryClient from "@/api/queryClient";
 import { queryKeys } from "@/constants";
 import { useMutation } from "@tanstack/react-query";
 
-function useUpdatePost() {
+function useCreateComment() {
   return useMutation({
-    mutationFn: updatePost,
-    onSuccess: (postId) => {
+    mutationFn: createComment,
+    onSuccess: (postId: number) => {
       queryClient.invalidateQueries({
         queryKey: [queryKeys.POST, queryKeys.GET_POST, postId],
-      });
-      queryClient.invalidateQueries({
-        queryKey: [queryKeys.POST, queryKeys.GET_POSTS],
       });
     },
   });
 }
 
-export default useUpdatePost;
+export default useCreateComment;

@@ -12,7 +12,6 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <FeedList />
-
       {auth.id && (
         <Pressable
           style={styles.writeButton}
@@ -27,7 +26,8 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 12,
+    flex: 1,
+    backgroundColor: colors.WHITE,
   },
   writeButton: {
     position: "absolute",

@@ -1,6 +1,6 @@
 import { Profile } from "@/types";
-import { getSecureStore } from "@/utils/secureStore";
 import axiosInstance from "./axios";
+import { getSecureStore } from "@/utils/secureStore";
 
 type RequestUser = {
   email: string;
@@ -31,4 +31,4 @@ async function getMe(): Promise<Profile> {
   return data;
 }
 
-export { getMe, postLogin, postSignup };
+export { postSignup, postLogin, getMe };

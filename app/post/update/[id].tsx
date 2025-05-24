@@ -1,14 +1,15 @@
-import CustomButton from "@/components/CustomButton";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { FormProvider, useForm } from "react-hook-form";
+import { ScrollView, StyleSheet, View } from "react-native";
 import DescriptionInput from "@/components/DescriptionInput";
 import TitleInput from "@/components/TitleInput";
+import useCreatePost from "@/hooks/queries/useCreatePost";
+import { ImageUri } from "@/types";
+import { router, useLocalSearchParams, useNavigation } from "expo-router";
+import { useEffect } from "react";
+import CustomButton from "@/components/CustomButton";
 import useGetPost from "@/hooks/queries/useGetPost";
 import useUpdatePost from "@/hooks/queries/useUpdatePost";
-import { ImageUri } from "@/types";
-import { useLocalSearchParams, useNavigation, useRouter } from "expo-router";
-import { useEffect } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import { StyleSheet } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 type FormValues = {
   title: string;
@@ -21,7 +22,6 @@ export default function PostUpdateScreen() {
   const navigation = useNavigation();
   const { data: post } = useGetPost(Number(id));
   const updatePost = useUpdatePost();
-  const router = useRouter();
 
   const postForm = useForm<FormValues>({
     defaultValues: {

@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function SettingScreen() {
   const { logout } = useAuth();
+
   return (
     <AuthRoute>
       <SafeAreaView>
